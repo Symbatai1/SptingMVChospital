@@ -1,34 +1,53 @@
 package peaksoft.repository.impl;
 
 import jakarta.persistence.*;
+import jakarta.transaction.Transactional;
 import lombok.*;
+import org.springframework.stereotype.Repository;
 import peaksoft.model.Appointment;
 import peaksoft.model.Department;
+import peaksoft.model.Doctor;
+import peaksoft.model.Hospital;
+import peaksoft.repository.DoctorRepos;
 
 import java.util.List;
 
-@Entity
-@Table(name = "doctors")
-@Setter
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-@ToString
+@Repository
+@Transactional
 
-public class DoctorReposImpl {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator = "doctor_gen")
-    @SequenceGenerator(
-            name = "doctor_gen",
-            sequenceName = "doctor_identity_seq",
-            allocationSize = 1)
-    private Long Id;
-    private String firstName;
-    private String lastName;
-    private String position;
-    private String email;
-    private List<Department> departments;
-    private List<Appointment>appointments;
+public class DoctorReposImpl implements DoctorRepos {
+    @PersistenceContext
+
+    private EntityManager entityManager;
+
+    @Override
+    public void saveDoctor(Doctor doctor) {
+        entityManager.persist(doctor);
+
+
+    }
+
+    @Override
+    public List<Doctor> getAllDoctorss() {
+        return entityManager.createQuery("select d from Hospital d",Doctor.class).getResultList();
+
+    }
+
+    @Override
+    public Doctor getDoctorById(Long id) {
+        return entityManager.find(Doctor.class,id);
+    }
+
+
+    @Override
+    public void deleteDoctorById(Long id) {
+
+    }
+
+    @Override
+    public void updateDoctorById(Long id, Doctor doctor) {
+
+    }
 }
+
+
