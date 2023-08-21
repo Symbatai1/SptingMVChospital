@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="ttps://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8" >
+    <meta name="viewport"      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GetALL</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<style>
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+    }
+</style>
+
+</head>
+<body>
+<div class="container"style="width: 90%; margin: 0 auto">
+    <div class="card" style="width: 18rem;" th:each="hospital:${allHospitals}">
+  <img th:src="${hospital.get.Image()}" class="card-img-top" alt="MedCenter Image">
+        <h4 class="card-title" th:text="${hospital.getName()}">MedCenter Name</h4>
+
+  </div>
+  </div>
+<div>
+
+    <a type = "button " class="submit">Save Hospital</abutton>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+</body>
+</html>

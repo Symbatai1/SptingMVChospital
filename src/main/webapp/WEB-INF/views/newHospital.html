@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="ttps://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>New Hospital</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+
+<form th: method="POST" th:action="@ {save}" th:object="${new Company">
+
+    <div>
+        <label for="image">Image</label>
+        <input type="text" th:field="*{image}" id="image">
+    </div>
+
+    <div>
+        <label for="name">Name</label>
+        <input type="text" th:field="*{name}" id="name">
+    </div>
+
+    <div>
+        <label for="address">Adress</label>
+        <input type="text" th:field="*{name}" id="address">
+    </div>
+
+    <button type="submit">Save Hospital</button>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+</body>
+</html>
